@@ -23,6 +23,29 @@ namespace Wpf2048
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
+            for (int i = 0; i < 4; i++)
+            {
+                ColumnDefinition colDef = new ColumnDefinition();
+                FieldView.ColumnDefinitions.Add(colDef);   
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                RowDefinition rowDef = new RowDefinition();
+                FieldView.RowDefinitions.Add(rowDef);
+            }
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    Button btn = new Button();
+                    Binding binding = new Binding();
+                    binding.Source = (ViewModel)DataContext;
+                    binding.Path = new PropertyPath("FieldVaue");
+                    btn.SetBinding(Button.ContentProperty, binding);
+                    Grid.SetRow(btn, i);
+                    Grid.SetColumn(btn, j);
+                    FieldView.Children.Add(btn);
+                }
         }
     }
 }
