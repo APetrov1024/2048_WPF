@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf2048", "Wpf2048\Wpf2048.csproj", "{C12DDF27-AC36-42C4-BF16-9837D60E877A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game2048_Model", "Model\Game2048_Model.csproj", "{CC310809-F1A3-4E32-91EB-662F285FC696}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C12DDF27-AC36-42C4-BF16-9837D60E877A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12DDF27-AC36-42C4-BF16-9837D60E877A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12DDF27-AC36-42C4-BF16-9837D60E877A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12DDF27-AC36-42C4-BF16-9837D60E877A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC310809-F1A3-4E32-91EB-662F285FC696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC310809-F1A3-4E32-91EB-662F285FC696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC310809-F1A3-4E32-91EB-662F285FC696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC310809-F1A3-4E32-91EB-662F285FC696}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4400CC47-C4AF-42F7-961D-387F022A8BDA}
+	EndGlobalSection
+EndGlobal
