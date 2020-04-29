@@ -1,0 +1,17 @@
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Debug\Wpf2048.exe.config
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Debug\Wpf2048.exe
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Debug\Wpf2048.pdb
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Debug\Game2048_Model.dll
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Debug\Game2048_Model.pdb
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\App.g.cs
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048_MarkupCompile.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048_MarkupCompile.lref
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\MainWindow.baml
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.g.resources
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.Properties.Resources.resources
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.csproj.CopyComplete
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.exe
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\Wpf2048.pdb

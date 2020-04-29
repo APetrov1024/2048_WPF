@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="FieldView" >
+    <Grid x:Name="FieldView" PreviewKeyUp="FieldView_KeyUp">
 
     </Grid>
 </Window>

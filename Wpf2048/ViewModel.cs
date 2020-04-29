@@ -11,18 +11,17 @@ namespace Wpf2048
 {
     class ViewModel: INotifyPropertyChanged
     {
-        //public int[,] Field { get; private set; }
+        public enum Actions { None, Left, Right, Up, Down, Restart };
+
         public int FieldValue
         {
             get
             {
-                int value = values.GetEnumerator().Current;
-                values.GetEnumerator().MoveNext();
-                return value;
+                return values.Dequeue();
             }
         }
 
-        private List<int> values = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+        private Queue<int> values = new Queue<int>();
 
         private Model model;
 
@@ -31,18 +30,36 @@ namespace Wpf2048
         public ViewModel()
         {
             this.model = new Model(4);
-            //this.Field = new int[this.model.HSize, this.model.VSize];
-            //UpdateField();
+            UpdateValues();
         }
 
-        /*public void UpdateField()
+        public void UpdateValues()
         {
             for (int i = 0; i < this.model.HSize; i++)
                 for (int j = 0; j < this.model.VSize; j++)
-                    this.Field[i, j] = this.model.Get(new Coordinates(i, j));
-            OnPropertyChanged("Field");
-        }*/
+                    this.values.Enqueue(this.model.Get(new Coordinates(j, i)));
+            OnPropertyChanged("FieldValue");
+        }
 
+        public void KeyPressed(Actions action)
+        {
+            switch (action)
+            {
+                case Actions.Down:
+                    model.Action(Model.Directions.Down);
+                    break;
+                case Actions.Up:
+                    model.Action(Model.Directions.Up);
+                    break;
+                case Actions.Left:
+                    model.Action(Model.Directions.Left);
+                    break;
+                case Actions.Right:
+                    model.Action(Model.Directions.Right);
+                    break;
+            }
+            UpdateValues();
+        }
 
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {

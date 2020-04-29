@@ -40,12 +40,31 @@ namespace Wpf2048
                     Button btn = new Button();
                     Binding binding = new Binding();
                     binding.Source = (ViewModel)DataContext;
-                    binding.Path = new PropertyPath("FieldVaue");
+                    binding.Path = new PropertyPath("FieldValue");
                     btn.SetBinding(Button.ContentProperty, binding);
                     Grid.SetRow(btn, i);
                     Grid.SetColumn(btn, j);
                     FieldView.Children.Add(btn);
                 }
+        }
+
+        private void FieldView_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left:
+                    ((ViewModel)DataContext).KeyPressed(ViewModel.Actions.Left);
+                    break;
+                case Key.Up:
+                    ((ViewModel)DataContext).KeyPressed(ViewModel.Actions.Up);
+                    break;
+                case Key.Right:
+                    ((ViewModel)DataContext).KeyPressed(ViewModel.Actions.Right);
+                    break;
+                case Key.Down:
+                    ((ViewModel)DataContext).KeyPressed(ViewModel.Actions.Down);
+                    break;
+            }
         }
     }
 }
