@@ -13,7 +13,7 @@ namespace Wpf2048
     {
         public enum Actions { None, Left, Right, Up, Down, Restart };
 
-        public int FieldValue
+        public string FieldValue
         {
             get
             {
@@ -21,7 +21,7 @@ namespace Wpf2048
             }
         }
 
-        private Queue<int> values = new Queue<int>();
+        private Queue<string> values = new Queue<string>();
 
         private Model model;
 
@@ -37,7 +37,13 @@ namespace Wpf2048
         {
             for (int i = 0; i < this.model.HSize; i++)
                 for (int j = 0; j < this.model.VSize; j++)
-                    this.values.Enqueue(this.model.Get(new Coordinates(j, i)));
+                {
+                    int value = this.model.Get(new Coordinates(j, i));
+                    if (value > 0)
+                        this.values.Enqueue(value.ToString());
+                    else
+                        this.values.Enqueue("");
+                }
             OnPropertyChanged("FieldValue");
         }
 

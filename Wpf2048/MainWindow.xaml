@@ -5,9 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="450" Width="450"
         PreviewKeyUp="MainWindow_KeyUp">
-    <Grid x:Name="FieldView" >
+    <Window.Resources>
+        <Style x:Key="TilesStyle">
+            <Style.Setters>
+                <Setter Property="Label.FontSize" Value="30" />
+                <Setter Property="Label.HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Label.VerticalAlignment" Value="Stretch" />
+                <Setter Property="Label.HorizontalContentAlignment" Value="Center" />
+                <Setter Property="Label.VerticalContentAlignment" Value="Center" />
+                <Setter Property="Label.Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="Cornsilk" />
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="Label.Content" Value="">
+                    <Setter Property="Label.Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="DarkGray" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Color="Khaki" />
+    </Window.Background>
 
+    <Grid x:Name="FieldView" ShowGridLines="True">
+        
     </Grid>
 </Window>

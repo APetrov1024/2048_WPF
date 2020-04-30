@@ -42,11 +42,12 @@ namespace Wpf2048
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                 {
-                    Button btn = new Button();
+                    Label btn = new Label();
                     Binding binding = new Binding();
                     binding.Source = (ViewModel)DataContext;
                     binding.Path = new PropertyPath("FieldValue");
                     btn.SetBinding(Button.ContentProperty, binding);
+                    btn.Style = this.Resources["TilesStyle"] as Style;
                     Grid.SetRow(btn, i);
                     Grid.SetColumn(btn, j);
                     FieldView.Children.Add(btn);
