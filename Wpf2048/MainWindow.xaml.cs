@@ -24,10 +24,15 @@ namespace Wpf2048
         {
             InitializeComponent();
             DataContext = new ViewModel();
+            CreateTiles();
+        }
+
+        private void CreateTiles()
+        {
             for (int i = 0; i < 4; i++)
             {
                 ColumnDefinition colDef = new ColumnDefinition();
-                FieldView.ColumnDefinitions.Add(colDef);   
+                FieldView.ColumnDefinitions.Add(colDef);
             }
             for (int i = 0; i < 4; i++)
             {
@@ -48,7 +53,7 @@ namespace Wpf2048
                 }
         }
 
-        private void FieldView_KeyUp(object sender, KeyEventArgs e)
+        private void MainWindow_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {

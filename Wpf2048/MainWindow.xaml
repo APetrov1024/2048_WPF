@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="FieldView" PreviewKeyUp="FieldView_KeyUp">
+        Title="MainWindow" Height="450" Width="800"
+        PreviewKeyUp="MainWindow_KeyUp">
+    <Grid x:Name="FieldView" >
 
     </Grid>
 </Window>
