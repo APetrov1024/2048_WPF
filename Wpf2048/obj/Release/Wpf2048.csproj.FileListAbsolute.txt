@@ -1,0 +1,17 @@
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Release\Wpf2048.exe.config
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Release\Wpf2048.exe
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Release\Wpf2048.pdb
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Release\Game2048_Model.dll
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\bin\Release\Game2048_Model.pdb
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\MainWindow.g.cs
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\App.g.cs
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048_MarkupCompile.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048_MarkupCompile.lref
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\MainWindow.baml
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.g.resources
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.Properties.Resources.resources
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.csproj.CopyComplete
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.exe
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Release\Wpf2048.pdb

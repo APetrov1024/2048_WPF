@@ -29,18 +29,20 @@ namespace Wpf2048
 
         private void CreateTiles()
         {
-            for (int i = 0; i < 4; i++)
+            int hFieldSize = ((ViewModel)DataContext).HFieldSize;
+            int vFieldSize = ((ViewModel)DataContext).VFieldSize;
+            for (int i = 0; i < hFieldSize; i++)
             {
                 ColumnDefinition colDef = new ColumnDefinition();
                 FieldView.ColumnDefinitions.Add(colDef);
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < vFieldSize; i++)
             {
                 RowDefinition rowDef = new RowDefinition();
                 FieldView.RowDefinitions.Add(rowDef);
             }
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++)
+            for (int i = 0; i < hFieldSize; i++)
+                for (int j = 0; j < vFieldSize; j++)
                 {
                     Label tile = new Label();
                     Binding binding = new Binding();

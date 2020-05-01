@@ -12,24 +12,48 @@ namespace Wpf2048
     class ViewModel: INotifyPropertyChanged
     {
         public enum Actions { None, Left, Right, Up, Down, Restart };
-
+        private Queue<string> values = new Queue<string>();
+        private Model model;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private int hFieldSize;
+        private int vFieldSize;
+        public int HFieldSize
+        {
+            get
+            {
+                return this.hFieldSize;
+            }
+            set
+            {
+                if (value > 0) this.hFieldSize = value;
+                OnPropertyChanged("HFieldSize");
+            }
+        }
+        public int VFieldSize
+        {
+            get
+            {
+                return this.vFieldSize;
+            }
+            set
+            {
+                if (value > 0) this.vFieldSize = value;
+                OnPropertyChanged("VFieldSize");
+            }
+        }
         public string FieldValue
         {
             get
             {
-                return values.Dequeue();
+                return this.values.Dequeue();
             }
         }
 
-        private Queue<string> values = new Queue<string>();
-
-        private Model model;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ViewModel()
         {
-            this.model = new Model(4);
+            this.VFieldSize = 4;
+            this.HFieldSize = 4;
+            this.model = new Model(HFieldSize, VFieldSize);
             UpdateValues();
         }
 
@@ -52,16 +76,16 @@ namespace Wpf2048
             switch (action)
             {
                 case Actions.Down:
-                    model.Action(Model.Directions.Down);
+                    this.model.Action(Model.Directions.Down);
                     break;
                 case Actions.Up:
-                    model.Action(Model.Directions.Up);
+                    this.model.Action(Model.Directions.Up);
                     break;
                 case Actions.Left:
                     model.Action(Model.Directions.Left);
                     break;
                 case Actions.Right:
-                    model.Action(Model.Directions.Right);
+                    this.model.Action(Model.Directions.Right);
                     break;
             }
             UpdateValues();
