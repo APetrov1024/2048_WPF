@@ -42,15 +42,15 @@ namespace Wpf2048
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                 {
-                    Label btn = new Label();
+                    Label tile = new Label();
                     Binding binding = new Binding();
                     binding.Source = (ViewModel)DataContext;
                     binding.Path = new PropertyPath("FieldValue");
-                    btn.SetBinding(Button.ContentProperty, binding);
-                    btn.Style = this.Resources["TilesStyle"] as Style;
-                    Grid.SetRow(btn, i);
-                    Grid.SetColumn(btn, j);
-                    FieldView.Children.Add(btn);
+                    tile.SetBinding(Button.ContentProperty, binding);
+                    tile.Style = this.Resources["TilesStyle"] as Style;
+                    Grid.SetRow(tile, i);
+                    Grid.SetColumn(tile, j);
+                    FieldView.Children.Add(tile);
                 }
         }
 

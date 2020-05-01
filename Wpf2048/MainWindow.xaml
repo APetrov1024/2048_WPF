@@ -8,8 +8,15 @@
         Title="MainWindow" Height="450" Width="450"
         PreviewKeyUp="MainWindow_KeyUp">
     <Window.Resources>
+        <ControlTemplate x:Key="TileTemplate" TargetType="Label">
+            <Grid>
+                <Rectangle RadiusX="10" RadiusY="10" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding Foreground}" />
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </ControlTemplate>
         <Style x:Key="TilesStyle">
             <Style.Setters>
+                <Setter Property="Label.Template" Value="{StaticResource TileTemplate}"/>
                 <Setter Property="Label.FontSize" Value="30" />
                 <Setter Property="Label.HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Label.VerticalAlignment" Value="Stretch" />
@@ -25,7 +32,7 @@
                 <Trigger Property="Label.Content" Value="">
                     <Setter Property="Label.Background">
                         <Setter.Value>
-                            <SolidColorBrush Color="DarkGray" />
+                            <SolidColorBrush Color="LightGray" />
                         </Setter.Value>
                     </Setter>
                 </Trigger>
@@ -33,11 +40,9 @@
         </Style>
         
     </Window.Resources>
-    <Window.Background>
-        <SolidColorBrush Color="Khaki" />
-    </Window.Background>
+   
 
-    <Grid x:Name="FieldView" ShowGridLines="True">
+    <Grid Background="DarkGray" x:Name="FieldView">
         
     </Grid>
 </Window>
