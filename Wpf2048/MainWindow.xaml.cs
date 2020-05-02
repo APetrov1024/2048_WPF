@@ -46,7 +46,6 @@ namespace Wpf2048
                 {
                     Label tile = new Label();
                     Binding binding = new Binding();
-                    binding.Source = (ViewModel)DataContext;
                     binding.Path = new PropertyPath("FieldValue");
                     tile.SetBinding(Button.ContentProperty, binding);
                     tile.Style = this.Resources["TilesStyle"] as Style;
@@ -54,6 +53,13 @@ namespace Wpf2048
                     Grid.SetColumn(tile, j);
                     FieldView.Children.Add(tile);
                 }
+        }
+
+        private void DeleteTiles()
+        {
+            FieldView.Children.Clear();
+            FieldView.ColumnDefinitions.Clear();
+            FieldView.RowDefinitions.Clear();
         }
 
         private void MainWindow_KeyUp(object sender, KeyEventArgs e)
@@ -73,6 +79,16 @@ namespace Wpf2048
                     ((ViewModel)DataContext).KeyPressed(ViewModel.Actions.Down);
                     break;
             }
+        }
+
+        private void NewGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewGameWindow newGameWindow = new NewGameWindow();
+            newGameWindow.Owner = this;
+            newGameWindow.ShowDialog();
+            DeleteTiles();
+            ((ViewModel)DataContext).StartNewGame();
+            CreateTiles();
         }
     }
 }

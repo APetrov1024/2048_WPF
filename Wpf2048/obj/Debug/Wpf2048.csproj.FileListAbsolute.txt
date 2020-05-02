@@ -32,3 +32,5 @@ C:\Users\admin\source\repos\Wpf2048\Wpf2048\obj\Debug\Wpf2048.g.resources
 C:\Users\admin\source\repos\Wpf2048\Wpf2048\obj\Debug\Wpf2048.Properties.Resources.resources
 C:\Users\admin\source\repos\Wpf2048\Wpf2048\obj\Debug\Wpf2048.csproj.GenerateResource.cache
 C:\Users\admin\source\repos\Wpf2048\Wpf2048\obj\Debug\Wpf2048.csproj.CopyComplete
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\NewGameWindow.g.cs
+C:\Users\Admin\source\repos\2048_WPF\Wpf2048\obj\Debug\NewGameWindow.baml

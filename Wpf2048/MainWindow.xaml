@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="450"
+        Title="Игра 2048" Height="450" Width="450"
         PreviewKeyUp="MainWindow_KeyUp">
     <Window.Resources>
         <ControlTemplate x:Key="TileTemplate" TargetType="Label">
@@ -40,9 +40,17 @@
         </Style>
         
     </Window.Resources>
-   
 
-    <Grid Background="DarkGray" x:Name="FieldView">
-        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Click="NewGameButton_Click">Новая игра</Button>
+        </Grid>
+        <Grid Grid.Row="1" Background="DarkGray" x:Name="FieldView">
+
+        </Grid>
     </Grid>
 </Window>

@@ -17,6 +17,20 @@ namespace Wpf2048
         public event PropertyChangedEventHandler PropertyChanged;
         private int hFieldSize;
         private int vFieldSize;
+        private int targetValue;
+        private int TargetValue
+        {
+            get
+            {
+                return this.targetValue;
+            }
+            set 
+            {
+                if ((value != this.targetValue) && (value > 0) && (value % 2 == 0))
+                    this.targetValue = value;
+                OnPropertyChanged("TargetValue");
+            }
+        }
         public int HFieldSize
         {
             get
@@ -25,7 +39,7 @@ namespace Wpf2048
             }
             set
             {
-                if (value > 0) this.hFieldSize = value;
+                if ((value > 0) && (value != this.hFieldSize)) this.hFieldSize = value;
                 OnPropertyChanged("HFieldSize");
             }
         }
@@ -37,7 +51,7 @@ namespace Wpf2048
             }
             set
             {
-                if (value > 0) this.vFieldSize = value;
+                if ((value > 0) && (value != this.vFieldSize)) this.vFieldSize = value;
                 OnPropertyChanged("VFieldSize");
             }
         }
@@ -45,7 +59,10 @@ namespace Wpf2048
         {
             get
             {
-                return this.values.Dequeue();
+                if (values.Count > 0)
+                    return this.values.Dequeue();
+                else
+                    return "err";
             }
         }
 
@@ -53,12 +70,20 @@ namespace Wpf2048
         {
             this.VFieldSize = 4;
             this.HFieldSize = 4;
+            StartNewGame();
+        }
+
+        public void StartNewGame()
+        {
+            values = null;
+            values = new Queue<string>();
             this.model = new Model(HFieldSize, VFieldSize);
             UpdateValues();
         }
 
         public void UpdateValues()
         {
+            values.Clear();
             for (int i = 0; i < this.model.HSize; i++)
                 for (int j = 0; j < this.model.VSize; j++)
                 {
