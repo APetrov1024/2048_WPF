@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
-        Title="GameOverWindow" Height="125" Width="300"
+        Title="GameOverWindow" Height="125" Width="450"
         WindowStyle="None"
         WindowStartupLocation="CenterOwner"
         Activated="Window_Activated">
@@ -13,14 +13,14 @@
         <Style x:Key="Message">
             <Style.Setters>
                 <Setter Property="TextBlock.FontSize" Value="50"/>
+                <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
             </Style.Setters>
             <Style.Triggers>
                 <Trigger Property="TextBlock.Text" Value="Победа">
                     <Setter Property="TextBlock.Foreground" Value="Green"/>
-                    <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
-                    <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
                 </Trigger>
-                <Trigger Property="TextBlock.Text" Value="Поражение">
+                <Trigger Property="TextBlock.Text" Value="Ходов больше нет">
                     <Setter Property="TextBlock.Foreground" Value="Red"/>
                 </Trigger>
             </Style.Triggers>
@@ -31,13 +31,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="MessageBlock" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Message}"/>
+        <TextBlock x:Name="MessageBlock" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource Message}"/>
         <Button Grid.Row="1" Grid.Column="0" Click="NewGameButton_Click">Новая игра</Button>
-        <Button Grid.Row="1" Grid.Column="1" Click="ExitButton_Click">Выход</Button>
+        <Button Grid.Row="1" Grid.Column="1" x:Name="ContinueButton" Click="ContinueButton_Click" Visibility="Hidden">Продолжить</Button>
+        <Button Grid.Row="1" Grid.Column="2" Click="ExitButton_Click">Выход</Button>
     </Grid>
 </Window>

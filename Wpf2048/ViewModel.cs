@@ -12,7 +12,7 @@ namespace Wpf2048
     class ViewModel: INotifyPropertyChanged
     {
         public enum Actions { None, Left, Right, Up, Down };
-        public enum GameStates { Running, Win, Fail};
+        public enum GameStates { Running, Win, Fail, Continued};
         private Queue<string> values = new Queue<string>();
         private Model model;
         private int hFieldSize;
@@ -118,7 +118,7 @@ namespace Wpf2048
 
         public void KeyPressed(Actions action)
         {
-            if (GameState == GameStates.Running)
+            if (this.GameState == GameStates.Running || this.GameState == GameStates.Continued)
             {
                 switch (action)
                 {
@@ -137,20 +137,27 @@ namespace Wpf2048
                 }
                 UpdateValues();
                 IsFail();
-                IsWin();
+                if (this.GameState == GameStates.Running)
+                    IsWin();
             }
         }
 
         private void IsFail()
         {
-            if (this.model.IsHasNotMoves() && !this.model.IsHaveValue(this.TargetValue))
-                GameState = GameStates.Fail;
+            if (this.model.IsHasNotMoves() && (!this.model.IsHaveValue(this.TargetValue) || this.GameState == GameStates.Continued))
+                this.GameState = GameStates.Fail;
         }
 
         private void IsWin()
         {
             if (this.model.IsHaveValue(this.TargetValue))
                 GameState = GameStates.Win;
+        }
+
+        public void ContinueGame()
+        {
+            if (this.GameState == GameStates.Win)
+                GameState = GameStates.Continued;
         }
 
         public void OnPropertyChanged([CallerMemberName]string prop = "")

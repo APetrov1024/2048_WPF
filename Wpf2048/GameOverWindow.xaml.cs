@@ -48,6 +48,12 @@ namespace Wpf2048
             this.Close();
         }
 
+        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModel)this.Owner.DataContext).ContinueGame();
+            this.Close();
+        }
+
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -58,11 +64,12 @@ namespace Wpf2048
             ViewModel.GameStates curGameState = ((ViewModel)this.Owner.DataContext).GameState;
             if (curGameState == ViewModel.GameStates.Fail)
             {
-                this.MessageBlock.Text = "Поражение";
+                this.MessageBlock.Text = "Ходов больше нет";
             };
             if (curGameState == ViewModel.GameStates.Win)
             {
                 this.MessageBlock.Text = Message = "Победа";
+                this.ContinueButton.Visibility = Visibility.Visible;
             };
         }
 
