@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
         Title="GameOverWindow" Height="125" Width="300"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
         Activated="Window_Activated">
     <Window.Resources>
         <Style x:Key="Message">

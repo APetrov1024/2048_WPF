@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Wpf2048"
         mc:Ignorable="d"
         Title="Новая игра" Height="150" Width="400"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
         Activated="Window_Activated">
     <Grid>
         <Grid.RowDefinitions>
