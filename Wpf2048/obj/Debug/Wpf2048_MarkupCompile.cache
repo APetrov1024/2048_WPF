@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Admin\source\repos\2048_WPF\Wpf2048\App.xaml
-2-1036652792
+3343858977
 
-7-1785323212
+8-561368335
 14-622624822
-MainWindow.xaml;NewGameWindow.xaml;
+GameOverWindow.xaml;MainWindow.xaml;NewGameWindow.xaml;
 
 False
 

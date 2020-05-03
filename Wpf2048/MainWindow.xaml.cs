@@ -24,6 +24,7 @@ namespace Wpf2048
         {
             InitializeComponent();
             DataContext = new ViewModel();
+            ((ViewModel)DataContext).GameStateChanged += ShowGameOverWindow;
             CreateTiles();
         }
 
@@ -81,7 +82,7 @@ namespace Wpf2048
             }
         }
 
-        private void NewGameButton_Click(object sender, RoutedEventArgs e)
+        private void StartNewGame()
         {
             NewGameWindow newGameWindow = new NewGameWindow();
             newGameWindow.Owner = this;
@@ -89,6 +90,22 @@ namespace Wpf2048
             DeleteTiles();
             ((ViewModel)DataContext).StartNewGame();
             CreateTiles();
+        }
+
+        private void NewGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartNewGame();
+        }
+
+        private void ShowGameOverWindow(ViewModel.GameStates state)
+        {
+            if (state == ViewModel.GameStates.Fail || state == ViewModel.GameStates.Win)
+            {
+                GameOverWindow gameOverWindow = new GameOverWindow();
+                gameOverWindow.Owner = this;
+                gameOverWindow.NewGameClicked += StartNewGame; 
+                gameOverWindow.ShowDialog();
+            }
         }
     }
 }
