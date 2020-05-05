@@ -42,8 +42,8 @@ namespace Wpf2048
                 RowDefinition rowDef = new RowDefinition();
                 FieldView.RowDefinitions.Add(rowDef);
             }
-            for (int i = 0; i < hFieldSize; i++)
-                for (int j = 0; j < vFieldSize; j++)
+            for (int i = 0; i < vFieldSize; i++)
+                for (int j = 0; j < hFieldSize; j++)
                 {
                     Label tile = new Label();
                     Binding binding = new Binding();

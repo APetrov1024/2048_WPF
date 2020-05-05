@@ -104,8 +104,8 @@ namespace Wpf2048
         public void UpdateValues()
         {
             values.Clear();
-            for (int i = 0; i < this.model.HSize; i++)
-                for (int j = 0; j < this.model.VSize; j++)
+            for (int i = 0; i < this.model.VSize; i++)
+                for (int j = 0; j < this.model.HSize; j++)
                 {
                     int value = this.model.Get(new Coordinates(j, i));
                     if (value > 0)

@@ -19,23 +19,8 @@ namespace Wpf2048
     /// </summary>
     public partial class GameOverWindow : Window
     {
-        private string message;
         public delegate void NewGameClickedHandler();
         public event NewGameClickedHandler NewGameClicked;
-        private string Message
-            {
-                get 
-                {
-                    return this.message;
-                }
-                set
-                {
-                    if (value != this.message)
-                    {
-                        this.message = value;
-                    }
-                }
-            }
         public GameOverWindow()
         {
             InitializeComponent();
@@ -68,7 +53,7 @@ namespace Wpf2048
             };
             if (curGameState == ViewModel.GameStates.Win)
             {
-                this.MessageBlock.Text = Message = "Победа";
+                this.MessageBlock.Text = "Победа";
                 this.ContinueButton.Visibility = Visibility.Visible;
             };
         }
