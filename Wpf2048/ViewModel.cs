@@ -9,7 +9,7 @@ using Game2048_Model;
 
 namespace Wpf2048
 {
-    class ViewModel: INotifyPropertyChanged
+    class ViewModel: INotifyPropertyChanged, IDataErrorInfo
     {
         public enum Actions { None, Left, Right, Up, Down };
         public enum GameStates { Running, Win, Fail, Continued};
@@ -19,7 +19,6 @@ namespace Wpf2048
         private int vFieldSize;
         private int targetValue;
         private GameStates gameState;
-        public event PropertyChangedEventHandler PropertyChanged;
         public delegate void GameStateHandler(GameStates state);
         public event GameStateHandler GameStateChanged;
         public GameStates GameState
@@ -160,10 +159,37 @@ namespace Wpf2048
                 GameState = GameStates.Continued;
         }
 
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
+        #region IDataErrorInfo
+        public string Error
+        {
+            get { return String.Empty; }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                bool IsPowerOfTwo(int n) { return (n > 0) && ((n & (n - 1)) == 0); }
+                string result = null;
+                if (propertyName == "TargetValue" &&
+                    (this.targetValue < 2 || !IsPowerOfTwo(this.targetValue))
+                    )
+                    result = "Должно быть целое число не меньше 2 и кратное 2";
+                if (propertyName == "HFieldSize" && this.hFieldSize < 2 )
+                    result = "Должно быть целое число не меньше 2";
+                if (propertyName == "VFieldSize" && this.vFieldSize < 2)
+                    result = "Должно быть целое число не меньше 2";
+                return result;
+            }
+        }
+        #endregion
     }
 }

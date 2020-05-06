@@ -9,6 +9,17 @@
         WindowStyle="None"
         WindowStartupLocation="CenterOwner"
         Activated="Window_Activated">
+    <Window.Resources>
+        <Style x:Key="textBoxInError" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self}, 
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -25,11 +36,14 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0">Горизонтальный размер поля</Label>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="HSize" Text="{Binding Path=HFieldSize, UpdateSourceTrigger=Explicit}" />
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="HSize" Style="{StaticResource textBoxInError}"
+                     Text="{Binding Path=HFieldSize, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}" />
             <Label Grid.Row="1" Grid.Column="0">Вертикальный размер поля</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="VSize" Text="{Binding Path=VFieldSize, UpdateSourceTrigger=Explicit}" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="VSize" Style="{StaticResource textBoxInError}"
+                     Text="{Binding Path=VFieldSize, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}" />
             <Label Grid.Row="2" Grid.Column="0">Цель</Label>
-            <TextBox Grid.Row="2" Grid.Column="1" x:Name="TargetValue" Text="{Binding Path=TargetValue, UpdateSourceTrigger=Explicit}" />
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="TargetValue" Style="{StaticResource textBoxInError}" 
+                     Text="{Binding Path=TargetValue, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

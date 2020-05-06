@@ -31,10 +31,11 @@ namespace Wpf2048
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            this.HSize.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            this.VSize.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            this.TargetValue.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            this.Close();
+            if (!Validation.GetHasError(this.HSize) &&
+                !Validation.GetHasError(this.VSize) &&
+                !Validation.GetHasError(this.TargetValue)
+                )
+                this.Close();
         }
 
         private void Window_Activated(object sender, EventArgs e)
