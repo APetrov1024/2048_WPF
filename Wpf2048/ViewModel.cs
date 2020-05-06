@@ -182,7 +182,7 @@ namespace Wpf2048
                 if (propertyName == "TargetValue" &&
                     (this.targetValue < 2 || !IsPowerOfTwo(this.targetValue))
                     )
-                    result = "Должно быть целое число не меньше 2 и кратное 2";
+                    result = "Должно быть целое число не меньше 2 и являться степенью 2";
                 if (propertyName == "HFieldSize" && this.hFieldSize < 2 )
                     result = "Должно быть целое число не меньше 2";
                 if (propertyName == "VFieldSize" && this.vFieldSize < 2)
